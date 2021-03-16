@@ -1,3 +1,4 @@
-/nbproject/private/
+nbproject/*
 db/*
-vendors/*
+vendor/*
+.DS_Store
