@@ -1,4 +1,9 @@
 nbproject/*
 db/*
 vendor/*
+project/vendor/*
 .DS_Store
+app.log
+.env
+appConfig.json
+appConfig.ini
