@@ -19,7 +19,7 @@ try {
 
     /** @var DB $db */
     $controller = $container->get(VisitorController::class);
-    $controller->store(['name'=>'Vardas', 'email' => 'aaaaa']);
+    $controller->store(['name'=>'Vardas', 'email' => 'aaaaa@123']);
 
 } catch (Exception $exception) {
     echo "Oi nutiko klaida: " . $exception->getMessage();
