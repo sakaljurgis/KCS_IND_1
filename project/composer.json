@@ -11,8 +11,10 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.4.12",
-        "ext-pdo": "*"
+        "php": ">=7.3.24",
+        "ext-pdo": "*",
+        "monolog/monolog": "2.1.1",
+        "php-di/php-di": "dev-master"
     },
     "autoload": {
         "psr-4": {
