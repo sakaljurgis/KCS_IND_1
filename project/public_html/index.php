@@ -2,8 +2,6 @@
 //var_dump($_SERVER);die();
 require_once __DIR__.'/../vendor/autoload.php';
 
-use KCS\Controller\VisitorController;
-use Pecee\SimpleRouter\SimpleRouter;
 use KCS\Router;
 use KCS\Config;
 
