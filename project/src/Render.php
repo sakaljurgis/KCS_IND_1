@@ -17,14 +17,14 @@ class Render
 
         if (is_array($duom)) {
             foreach ($duom as $item) {
-                if ($duom instanceof ToStringInterface){
-                    $str .= $duom;
+                if ($item instanceof ToStringInterface){
+                    $str .= "<br>" . $item;
                 } elseif(is_array($item)) {
-                    $str .= "\n" . implode(',', $item);
+                    $str .= "<br>" . implode(',', $item);
                 } elseif(is_string($item)) {
                     echo $item;
                 } else {
-                    echo "...";
+                    echo "Unknown data provided<br>";
                 }
             }
             echo $str ?: 'Missing data.';

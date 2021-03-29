@@ -21,30 +21,16 @@ abstract class BaseRepository implements RepositoryInterface
         $this->conn = $conn->getConn();
     }
 
-    public function store($params): ModelInterface
+    public function storeAndReturn($params): ModelInterface
     {
         $table = $this->getTableName();
 
-        $paramNames = array_keys($params);
-
-        $sql = "INSERT INTO $table(".implode(',', $paramNames).") VALUES(:".implode(', :', $paramNames).")";
-        $stmt = $this->conn->prepare($sql);
-        foreach ($params as $key => $value) {
-            $stmt->bindValue(':'.$key, $value);
-        }
-        $status = $stmt->execute();
+        $status = $this->store($params, $table);
 
         if ($status) {
-            $id = $this->conn->lastInsertId();
-            $stmt = $this->conn->prepare("SELECT * FROM $table WHERE id = :id");
-            $model = $this->getModelClass();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, $model);
-            $stmt->bindParam('id', $id);
-            $stmt->execute();
-
-            return $stmt->fetch();
+            return $this->getLastInsertedVisitor($table);
         }
-        throw new RuntimeException('Gote some error');
+        throw new RuntimeException('Gote some error when storing record');
     }
 
     protected function getTableName(): string
@@ -75,6 +61,24 @@ abstract class BaseRepository implements RepositoryInterface
         return substr(implode('_', $loweredWords), 1);
     }
 
+    /**
+     * @param  string  $table
+     *
+     * @return mixed
+     * @throws Exception
+     */
+    private function getLastInsertedVisitor(string $table)
+    {
+        $id = $this->conn->lastInsertId();
+        $stmt = $this->conn->prepare("SELECT * FROM $table WHERE id = :id");
+        $model = $this->getModelClass();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $model);
+        $stmt->bindParam('id', $id);
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
     public function getModelClass(): string
     {
         $modelName = get_class($this)."::MODEL";
@@ -84,4 +88,23 @@ abstract class BaseRepository implements RepositoryInterface
 
         throw new Exception('Repository missing MODEL constant');
     }
+
+    /**
+     * @param          $params
+     * @param  string  $table
+     *
+     * @return bool
+     */
+    public function store($params, string $table): bool
+    {
+        $paramNames = array_keys($params);
+
+        $sql = "INSERT INTO $table(".implode(',', $paramNames).") VALUES(:".implode(', :', $paramNames).")";
+        $stmt = $this->conn->prepare($sql);
+        foreach ($params as $key => $value) {
+            $stmt->bindValue(':'.$key, $value);
+        }
+        $status = $stmt->execute();
+        return $status;
+}
 }

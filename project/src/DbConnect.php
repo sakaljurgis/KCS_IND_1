@@ -11,8 +11,13 @@ class DbConnect
 
     public function __construct()
     {
-        $this->conn = new PDO("mysql:host=127.0.0.1;dbname=kcs_db", 'devuser', 'devpass');
-        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        if (php_sapi_name() === 'cli') {
+            $this->conn = new PDO("mysql:host=127.0.0.1;dbname=kcs_db", 'devuser', 'devpass');
+        } else {
+            $this->conn = new PDO("mysql:host=db;dbname=kcs_db", 'devuser', 'devpass');
+        }
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
     }
 
     public function getConn(): PDO

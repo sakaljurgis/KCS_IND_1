@@ -4,8 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "beea7e260c7f7918675d697fbc403594",
+    "content-hash": "9fec37a522c5da76630cc63992d5d69d",
     "packages": [
+        {
+            "name": "jeremeamia/superclosure",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeremeamia/super_closure.git",
+                "reference": "5344ca13846e50196712c997f3426543d130ea31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/5344ca13846e50196712c997f3426543d130ea31",
+                "reference": "5344ca13846e50196712c997f3426543d130ea31",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "^1.2|^2.0|^3.0|^4.0",
+                "php": ">=5.4",
+                "symfony/polyfill-php56": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SuperClosure\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Lindblom",
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Serialize Closure objects, including their context and binding",
+            "homepage": "https://github.com/jeremeamia/super_closure",
+            "keywords": [
+                "closure",
+                "function",
+                "lambda",
+                "parser",
+                "serializable",
+                "serialize",
+                "tokenizer"
+            ],
+            "support": {
+                "issues": "https://github.com/jeremeamia/super_closure/issues",
+                "source": "https://github.com/jeremeamia/super_closure/tree/master"
+            },
+            "abandoned": "opis/closure",
+            "time": "2020-04-02T05:52:13+00:00"
+        },
         {
             "name": "monolog/monolog",
             "version": "2.1.1",
@@ -102,40 +165,89 @@
             "time": "2020-07-23T08:41:23+00:00"
         },
         {
-            "name": "opis/closure",
-            "version": "dev-master",
+            "name": "nikic/php-parser",
+            "version": "3.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/opis/closure.git",
-                "reference": "06b4961aabf900c72a20b7000bfa10fd7ae3035e"
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "bb87e28e7d7b8d9a7fda231d37457c9210faf6ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/06b4961aabf900c72a20b7000bfa10fd7ae3035e",
-                "reference": "06b4961aabf900c72a20b7000bfa10fd7ae3035e",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bb87e28e7d7b8d9a7fda231d37457c9210faf6ce",
+                "reference": "bb87e28e7d7b8d9a7fda231d37457c9210faf6ce",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.4 || ^7.0 || ^8.0"
+                "ext-tokenizer": "*",
+                "php": ">=5.5"
             },
             "require-dev": {
-                "jeremeamia/superclosure": "^2.0",
-                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "~4.0|~5.0"
             },
-            "default-branch": true,
+            "bin": [
+                "bin/php-parse"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.6.x-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Opis\\Closure\\": "src/"
-                },
-                "files": [
-                    "functions.php"
-                ]
+                    "PhpParser\\": "lib/PhpParser"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/nikic/PHP-Parser/issues",
+                "source": "https://github.com/nikic/PHP-Parser/tree/v3.1.5"
+            },
+            "time": "2018-02-28T20:30:58+00:00"
+        },
+        {
+            "name": "pecee/simple-router",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skipperbent/simple-php-router.git",
+                "reference": "153f8630f2abde6c58bb7109f1f8ebd5d23a53e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skipperbent/simple-php-router/zipball/153f8630f2abde6c58bb7109f1f8ebd5d23a53e6",
+                "reference": "153f8630f2abde6c58bb7109f1f8ebd5d23a53e6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.1",
+                "php-di/php-di": "^6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1",
+                "phpunit/phpunit": "^6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pecee\\": "src/Pecee/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -143,29 +255,30 @@
             ],
             "authors": [
                 {
-                    "name": "Marius Sarca",
-                    "email": "marius.sarca@gmail.com"
-                },
-                {
-                    "name": "Sorin Sarca",
-                    "email": "sarca_sorin@hotmail.com"
+                    "name": "Simon Sessingø",
+                    "email": "simon.sessingoe@gmail.com"
                 }
             ],
-            "description": "A library that can be used to serialize closures (anonymous functions) and arbitrary objects.",
-            "homepage": "https://opis.io/closure",
+            "description": "Simple, fast PHP router that is easy to get integrated and in almost any project. Heavily inspired by the Laravel router.",
             "keywords": [
-                "anonymous functions",
-                "closure",
-                "function",
-                "serializable",
-                "serialization",
-                "serialize"
+                "framework",
+                "input-handler",
+                "laravel",
+                "pecee",
+                "php",
+                "request-handler",
+                "route",
+                "router",
+                "routing",
+                "routing-engine",
+                "simple-php-router",
+                "url-handling"
             ],
             "support": {
-                "issues": "https://github.com/opis/closure/issues",
-                "source": "https://github.com/opis/closure/tree/master"
+                "issues": "https://github.com/skipperbent/simple-php-router/issues",
+                "source": "https://github.com/skipperbent/simple-php-router/issues"
             },
-            "time": "2020-12-05T19:20:15+00:00"
+            "time": "2018-11-24T23:47:26+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -224,21 +337,22 @@
         },
         {
             "name": "php-di/php-di",
-            "version": "dev-master",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "5762e370a49c5e74e51be2910ab1ffb1f856fe6b"
+                "reference": "4773f7644b0c98ebfc22a1368e519ab5ac2e076c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/5762e370a49c5e74e51be2910ab1ffb1f856fe6b",
-                "reference": "5762e370a49c5e74e51be2910ab1ffb1f856fe6b",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/4773f7644b0c98ebfc22a1368e519ab5ac2e076c",
+                "reference": "4773f7644b0c98ebfc22a1368e519ab5ac2e076c",
                 "shasum": ""
             },
             "require": {
-                "opis/closure": "^3.5.5",
-                "php": ">=7.2.0",
+                "jeremeamia/superclosure": "^2.0",
+                "nikic/php-parser": "^2.0|^3.0",
+                "php": ">=7.0.0",
                 "php-di/invoker": "^2.0",
                 "php-di/phpdoc-reader": "^2.0.1",
                 "psr/container": "^1.0"
@@ -249,16 +363,14 @@
             "require-dev": {
                 "doctrine/annotations": "~1.2",
                 "friendsofphp/php-cs-fixer": "^2.4",
-                "mnapoli/phpunit-easymock": "^1.2",
-                "ocramius/proxy-manager": "^2.0.2",
-                "phpstan/phpstan": "^0.12",
-                "phpunit/phpunit": "^8.5|^9.0"
+                "mnapoli/phpunit-easymock": "~1.0",
+                "ocramius/proxy-manager": "~2.0.2",
+                "phpunit/phpunit": "~6.4"
             },
             "suggest": {
                 "doctrine/annotations": "Install it if you want to use annotations (version ~1.2)",
                 "ocramius/proxy-manager": "Install it if you want to use lazy injection (version ~2.0)"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -273,7 +385,7 @@
                 "MIT"
             ],
             "description": "The dependency injection container for humans",
-            "homepage": "https://php-di.org/",
+            "homepage": "http://php-di.org/",
             "keywords": [
                 "PSR-11",
                 "container",
@@ -285,19 +397,9 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-DI/PHP-DI/issues",
-                "source": "https://github.com/PHP-DI/PHP-DI/tree/7.0.0-beta3"
+                "source": "https://github.com/PHP-DI/PHP-DI/tree/master"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/mnapoli",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/php-di/php-di",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-03-06T20:32:01+00:00"
+            "time": "2018-02-20T07:27:46+00:00"
         },
         {
             "name": "php-di/phpdoc-reader",
@@ -439,13 +541,82 @@
                 "source": "https://github.com/php-fig/log/tree/master"
             },
             "time": "2021-03-02T15:02:34+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php56",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php56.git",
+                "reference": "54b8cd7e6c1643d78d011f3be89f3ef1f9f4c675"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/54b8cd7e6c1643d78d011f3be89f3ef1f9f4c675",
+                "reference": "54b8cd7e6c1643d78d011f3be89f3ef1f9f4c675",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "default-branch": true,
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.20-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 5.6+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php56/tree/v1.20.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T14:02:19+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "php-di/php-di": 20
+        "pecee/simple-router": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

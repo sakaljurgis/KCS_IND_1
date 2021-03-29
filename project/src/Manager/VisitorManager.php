@@ -2,7 +2,10 @@
 
 namespace KCS\Manager;
 
+use KCS\Dtos\VisitorDto;
+use KCS\Model\AddressModel;
 use KCS\Model\ModelInterface;
+use KCS\Model\VisitorModel;
 use KCS\Repository\VisitorsRepository;
 
 class VisitorManager
@@ -22,9 +25,9 @@ class VisitorManager
         return $this->repository->all();
     }
 
-    public function store($params): ModelInterface
+    public function store(VisitorDto $dto): ModelInterface
     {
-        // @TODO: Do some Validations here
-        return $this->repository->store($params);
+        //$this->validator->validate(VisitorModel::class, $dto);
+        return $this->repository->storeAndReturn($dto->toArray());
     }
 }
