@@ -2,7 +2,7 @@
 
 namespace KCS\Exceptions;
 
-class ValidationException extends \Throwable
+class ValidationException extends \Exception
 {
     public function __construct(string $message, $code = null, Throwable $exception = null)
     {

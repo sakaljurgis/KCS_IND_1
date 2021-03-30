@@ -4,5 +4,5 @@ namespace KCS\Services\Validator\Constraints;
 
 interface ConstraintInterface
 {
-    public function isValid(): bool;
+    public function isValid($fieldValue, $fieldName): bool;
 }

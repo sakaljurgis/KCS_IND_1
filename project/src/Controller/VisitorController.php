@@ -51,4 +51,11 @@ class VisitorController extends BaseController
 
         $this->render->render($lankytojas);
     }
+    
+    public function show($args = null): void
+    {   
+        $sArgs = implode("; ", $args);
+        echo "todo VisitorController->show($sArgs)";
+    }
+    
 }

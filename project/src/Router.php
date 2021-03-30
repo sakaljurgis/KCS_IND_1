@@ -21,15 +21,19 @@ class Router
     public function start()
     {
 
-        foreach ($this->routes as $path => $route) {
+        foreach ($this->routes as $route) {
             
+            $path = $route['path'];
             $method = $route['method'];
             $container = $this->container;
             
             SimpleRouter::$method($path, function () use ($container, $route) {
                 $controller = $container->get($route['class']);
                 $action = $route['action'];
-                $controller->$action();
+                
+                $arglist = func_get_args();
+                
+                $controller->$action($arglist);
             });
             
         }

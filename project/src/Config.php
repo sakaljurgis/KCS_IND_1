@@ -15,7 +15,6 @@ class Config
     
     private function loadConfigFiles(): void
     {
-        //load all files from config folder, merge arrays
         //if mandatory file is missing throw exception
         $configDirPath = __DIR__.'/../config';
         $filenames = scandir($configDirPath);
