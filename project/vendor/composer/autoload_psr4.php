@@ -6,5 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'SuperClosure\\' => array($vendorDir . '/jeremeamia/superclosure/src'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
+    'PhpDocReader\\' => array($vendorDir . '/php-di/phpdoc-reader/src/PhpDocReader'),
+    'Pecee\\' => array($vendorDir . '/pecee/simple-router/src/Pecee'),
+    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'KCS\\' => array($baseDir . '/src'),
+    'Invoker\\' => array($vendorDir . '/php-di/invoker/src'),
+    'DI\\' => array($vendorDir . '/php-di/php-di/src'),
 );

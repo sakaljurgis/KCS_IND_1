@@ -10,7 +10,8 @@ class MaxLenConstraint implements ConstraintInterface
     
     public function __construct($ruleDescription)
     {
-        $this->maxLen = (int)explode(":", $ruleDescription)[1];
+        //var_dump($ruleDescription);exit;
+        $this->maxLen = (int)$ruleDescription[1];
     }
     
     public function isValid($fieldValue, $fieldName = ''): bool {

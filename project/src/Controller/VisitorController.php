@@ -9,6 +9,8 @@ use KCS\Render;
 use KCS\Services\RequestHandlerService;
 use KCS\Services\RequestValidator;
 use KCS\ValidationRules\VisitorValidationRules;
+use Pecee\Http\Response;
+use Pecee\SimpleRouter\SimpleRouter;
 
 class VisitorController extends BaseController
 {
@@ -24,11 +26,11 @@ class VisitorController extends BaseController
         $this->manager = $manager;
     }
 
-    public function index(): void
+    public function index(): array
     {
         $lankytojai = $this->manager->getAllVisitors();
 
-        $this->render->render($lankytojai);
+        return $lankytojai;
     }
 
     public function store(): void
@@ -52,10 +54,9 @@ class VisitorController extends BaseController
         $this->render->render($lankytojas);
     }
     
-    public function show($args = null): void
+    public function show($id): void
     {   
-        $sArgs = implode("; ", $args);
-        echo "todo VisitorController->show($sArgs)";
+        echo "todo VisitorController->show($id)";
     }
     
 }

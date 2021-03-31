@@ -13,6 +13,7 @@ services:
     environment:
       APACHE_SERVER_NAME: kcs
       APPLICATION_ENV: development
+      PHP_IDE_CONFIG: "serverName=kcs"
 
   db:
     image: mysql:latest

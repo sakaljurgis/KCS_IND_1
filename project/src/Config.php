@@ -24,7 +24,6 @@ class Config
                 continue;
             }
             $filePath = $configDirPath . "/" . $filename;
-            //echo $filePath;
             
             $this->configList[explode(".", $filename)[0]] = include $filePath;
         }

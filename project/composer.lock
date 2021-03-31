@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fec37a522c5da76630cc63992d5d69d",
+    "content-hash": "b5cee99b7b00ba029522c4dd6fcbaf5c",
     "packages": [
         {
             "name": "jeremeamia/superclosure",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremeamia/super_closure.git",
-                "reference": "5344ca13846e50196712c997f3426543d130ea31"
+                "reference": "5b3c76c0e4c6b01cddb6e997f579a1b4c59ee8a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/5344ca13846e50196712c997f3426543d130ea31",
-                "reference": "5344ca13846e50196712c997f3426543d130ea31",
+                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/5b3c76c0e4c6b01cddb6e997f579a1b4c59ee8a0",
+                "reference": "5b3c76c0e4c6b01cddb6e997f579a1b4c59ee8a0",
                 "shasum": ""
             },
             "require": {
@@ -28,6 +28,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^4.0|^5.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -67,7 +68,7 @@
                 "source": "https://github.com/jeremeamia/super_closure/tree/master"
             },
             "abandoned": "opis/closure",
-            "time": "2020-04-02T05:52:13+00:00"
+            "time": "2021-03-29T15:20:09+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -221,28 +222,26 @@
         },
         {
             "name": "pecee/simple-router",
-            "version": "dev-master",
+            "version": "4.3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/skipperbent/simple-php-router.git",
-                "reference": "153f8630f2abde6c58bb7109f1f8ebd5d23a53e6"
+                "reference": "d0c34255b57b675ba3f28b8d3f430812c9793300"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/skipperbent/simple-php-router/zipball/153f8630f2abde6c58bb7109f1f8ebd5d23a53e6",
-                "reference": "153f8630f2abde6c58bb7109f1f8ebd5d23a53e6",
+                "url": "https://api.github.com/repos/skipperbent/simple-php-router/zipball/d0c34255b57b675ba3f28b8d3f430812c9793300",
+                "reference": "d0c34255b57b675ba3f28b8d3f430812c9793300",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": ">=7.1",
-                "php-di/php-di": "^6.0"
+                "php": ">=7.1"
             },
             "require-dev": {
                 "mockery/mockery": "^1",
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^7"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -278,7 +277,7 @@
                 "issues": "https://github.com/skipperbent/simple-php-router/issues",
                 "source": "https://github.com/skipperbent/simple-php-router/issues"
             },
-            "time": "2018-11-24T23:47:26+00:00"
+            "time": "2021-03-29T20:31:01+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -615,9 +614,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "pecee/simple-router": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

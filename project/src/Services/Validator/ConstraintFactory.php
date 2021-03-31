@@ -22,11 +22,12 @@ class ConstraintFactory
     
     public static function make(string $ruleDescription): ConstraintInterface
     {
-        $ruleName = explode(":", $ruleDescription)[0];
+        $ruleParams = explode(":", $ruleDescription);
+        $ruleName = $ruleParams[0];
         $className = self::MAP[$ruleName];
         
         if (isset($className)){
-            return new $className($ruleDescription);
+            return new $className($ruleParams);
         } else {
             throw new ValidationException("Validation rule '$ruleName' is not defined");
         }

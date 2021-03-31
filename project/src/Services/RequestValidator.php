@@ -9,14 +9,15 @@ use KCS\Services\Validator\ConstraintFactory;
 
 class RequestValidator
 {
+    private const REQUIRED_FIELD_NAME = 'required';
     public function validate(ValidationRulesInterface $validationRules): bool
     {
 
         $requestPayload = $_POST;
         
         $rules = $validationRules->getRules();
-        
-        $requiredFields = $this->extractRequiredFields($rules);
+        $rules2 = $rules;
+        $requiredFields = $this->extractRequiredFields($rules2);
         
         foreach ($requiredFields as $fieldName) {
             if (!isset($requestPayload[$fieldName])){
@@ -24,7 +25,7 @@ class RequestValidator
             }
         }
         
-        foreach ($rules as $fieldName => $fieldRules) {
+        foreach ($rules2 as $fieldName => $fieldRules) {
             
             if (!isset($requestPayload[$fieldName])){
                 continue;
@@ -33,12 +34,7 @@ class RequestValidator
             $fieldValue = $requestPayload[$fieldName];
             
             foreach ($fieldRules as $rule) {
-                
-                if ($rule === 'required') {
-                    continue;
-                }
                 ConstraintFactory::make($rule)->isValid($fieldValue, $fieldName);
-                
             }
             
         }
@@ -47,14 +43,16 @@ class RequestValidator
         
     }
     
-    private function extractRequiredFields(array $rules): array {
+    private function extractRequiredFields(array &$rules): array {
         
         $requiredFields = [];
-    
+        
         foreach ($rules as $fieldName => $fieldRules) {
             
-            if (in_array('required', $fieldRules)) {
+            if (in_array(self::REQUIRED_FIELD_NAME, $fieldRules)) {
                 $requiredFields[] = $fieldName;
+                $index = array_search(self::REQUIRED_FIELD_NAME, $fieldRules);
+                unset($rules[$fieldName][$index]);
             }
             
         }

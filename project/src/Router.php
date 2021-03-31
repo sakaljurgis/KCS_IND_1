@@ -2,7 +2,8 @@
 
 
 namespace KCS;
-use DI\Container;
+//use DI\Container;
+use KCS\ClassLoader as Container;
 use Pecee\SimpleRouter\SimpleRouter;
 
 class Router
@@ -20,25 +21,21 @@ class Router
 
     public function start()
     {
+        SimpleRouter::setCustomClassLoader($this->container);
 
         foreach ($this->routes as $route) {
-            
             $path = $route['path'];
             $method = $route['method'];
-            $container = $this->container;
-            
-            SimpleRouter::$method($path, function () use ($container, $route) {
-                $controller = $container->get($route['class']);
-                $action = $route['action'];
-                
-                $arglist = func_get_args();
-                
-                $controller->$action($arglist);
-            });
-            
+
+            $callBack = function() use $route {
+
+            }
+
+            SimpleRouter::$method($path, [$route['class'], $route['action']]);
         }
 
         SimpleRouter::start();
         
+        var_dump(SimpleRouter::response());
     }
 }

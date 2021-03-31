@@ -12,5 +12,4 @@ class IsStringConstraint implements ConstraintInterface
         }
         return true;
     }
-
 }

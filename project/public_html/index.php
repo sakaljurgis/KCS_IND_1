@@ -4,6 +4,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use KCS\Router;
 use KCS\Config;
+use KCS\ClassLoader;
 
 try {
 
@@ -12,7 +13,8 @@ try {
 
     $config = new Config();
     
-    $container = new DI\Container();
+    $container = new ClassLoader();
+    $container->getContainer()->set(Config::class, $config);
     
     $router = new Router($config, $container);
     
@@ -26,4 +28,5 @@ try {
 } catch (Exception $exception) {
     echo "Oi nutiko klaida: " . $exception->getMessage();
     $log->warning($exception->getMessage());
+    //$customExceptionHandler->handle($exception); -> echo log..
 }
