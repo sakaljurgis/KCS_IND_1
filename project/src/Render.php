@@ -6,30 +6,46 @@ use KCS\Model\ToStringInterface;
 
 class Render
 {
-    public function render($duom): void
+    private string $responseType;
+    public function render($data): string
     {
-         $str = '';
+        if ($this->responseType === 'html') {
+            return $this->renderHtml($data);
+        }
+        return 'Unknown response type';
+    }
 
-         if ($duom instanceof ToStringInterface){
-             echo $duom;
-             return;
-         }
+    public function responseType($type): void
+    {
+        $this->responseType = $type;
+    }
 
-        if (is_array($duom)) {
-            foreach ($duom as $item) {
+    private function renderHtml($data): string
+    {
+
+        $str = '';
+
+        if ($data instanceof ToStringInterface){
+            return $data;
+        }
+
+        if (is_array($data)) {
+            foreach ($data as $item) {
                 if ($item instanceof ToStringInterface){
                     $str .= "<br>" . $item;
                 } elseif(is_array($item)) {
                     $str .= "<br>" . implode(',', $item);
                 } elseif(is_string($item)) {
-                    echo $item;
+                    return $item;
                 } else {
-                    echo "Unknown data provided<br>";
+                    return "Unknown data provided<br>";
                 }
             }
-            echo $str ?: 'Missing data.';
+            return $str ?: 'Missing data.';
         } else {
-            echo $duom;
+            return $data;
         }
+
     }
+
 }

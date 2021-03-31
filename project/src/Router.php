@@ -26,16 +26,22 @@ class Router
         foreach ($this->routes as $route) {
             $path = $route['path'];
             $method = $route['method'];
+            $container = $this->container->getContainer();
 
-            $callBack = function() use $route {
+            $callBack = function() use ($route, $container) {
 
-            }
+                $controller = $container->get($route['class']);
+                $action = $route['action'];
+                $result = $controller->$action();
+                $render = $container->get(Render::class);
 
-            SimpleRouter::$method($path, [$route['class'], $route['action']]);
+                $render->responseType('html');
+                return $render->render($result);
+            };
+
+            SimpleRouter::$method($path, $callBack);
         }
 
         SimpleRouter::start();
-        
-        var_dump(SimpleRouter::response());
     }
 }
